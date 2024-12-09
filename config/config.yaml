@@ -2,3 +2,10 @@ data_ingestion:
   url: 'https://docs.google.com/document/d/1ivKxJzrHF79e-p1oQQBGfy3Pa9Yun9Zm/edit?usp=sharing&ouid=109341051897683575625&rtpof=true&sd=true'
   destination_folder: '/home/moraa-ontita/Documents/GenAI/Sales AI/artifacts/DataIngestion/'
   file_name: 'alkhemy_brands_overview_updated.docx'
+
+
+global:
+  config_path: "/home/moraa-ontita/Documents/GenAI/Sales AI/config/config.yaml"
+
+document_loader:
+  file_path: "/home/moraa-ontita/Documents/GenAI/Sales AI/artifacts/DataIngestion/alkhemy_brands_overview_updated.docx"

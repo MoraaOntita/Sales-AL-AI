@@ -1,4 +1,12 @@
+import os
+from src.al_rag.config.configuration import load_config
 
-DEFAULT_DESTINATION_FOLDER = '/home/moraa-ontita/Documents/GenAI/Sales AI/artifacts/DataIngestion/'
-DEFAULT_FILE_NAME = 'default_data_file.docx'
-DEFAULT_CONFIG_FILE = '/home/moraa-ontita/Documents/GenAI/Sales AI/config/config.yaml'
+# Dynamically determine the base directory of the project
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../"))
+
+# Correct path to the configuration file
+DEFAULT_CONFIG_FILE = os.path.join(BASE_DIR, "config", "config.yaml")
+
+# Load global configurations
+global_config = load_config(DEFAULT_CONFIG_FILE)
+CONFIG_PATH = global_config.get("global", {}).get("config_path", DEFAULT_CONFIG_FILE)
