@@ -10,3 +10,6 @@ DEFAULT_CONFIG_FILE = os.path.join(BASE_DIR, "config", "config.yaml")
 # Load global configurations
 global_config = load_config(DEFAULT_CONFIG_FILE)
 CONFIG_PATH = global_config.get("global", {}).get("config_path", DEFAULT_CONFIG_FILE)
+
+# Set CONFIG_PATH environment variable dynamically
+os.environ["CONFIG_PATH"] = CONFIG_PATH

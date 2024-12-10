@@ -1,6 +1,7 @@
 # loads the configuration values from config.yaml.
 
 import yaml
+import os
 from src.al_rag.custom_exceptions import ConfigurationError
 from src.al_rag.utils.common import log_and_handle_exceptions
 from typing import Dict
@@ -19,10 +20,16 @@ def load_config(config_path: str) -> Dict:
         ConfigurationError: If configuration loading fails.
     """
     try:
+        # Check if the configuration file exists
+        if not os.path.exists(config_path):
+            raise ConfigurationError(f"Configuration file not found at {config_path}")
+
         with open(config_path, 'r') as file:
             config = yaml.safe_load(file)
+        
         if not config:
             raise ConfigurationError("Configuration file is empty.")
+        
         return config
     except Exception as e:
         raise ConfigurationError(f"Failed to load configuration: {e}")

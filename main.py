@@ -1,5 +1,6 @@
 from src.al_rag.pipeline.Stage_01_Data_Ingestion import execute_data_ingestion
 from src.al_rag.pipeline.Stage_02_Data_Loader import load_data
+from src.al_rag.pipeline.Stage_03_Metadata import process_metadata  # Import the new metadata processing stage
 from src.al_rag import logger
 
 def run_stage(stage_name: str, stage_function: callable):
@@ -28,6 +29,7 @@ if __name__ == "__main__":
     stages = [
         {"name": "Data Ingestion Stage", "function": execute_data_ingestion},
         {"name": "Data Loader Stage", "function": load_data},
+        {"name": "Metadata Generation Stage", "function": process_metadata},
     ]
     
     # Execute all pipeline stages sequentially
